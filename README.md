@@ -4,10 +4,11 @@ Este es el repositorio ofical de la aplicación web del MovieQuerySearch. Aquí 
 <br>
 
 **⚙️ Instalación:**
-1. Descargar angular 9 o una versión superior y nodeJS.
-2. Clonar el repositorio [movie-query-search](https://github.com/luiscaguilarucr/movie-query-search.git "MovieQuerySearch").
-3. Instalar las dependencias de nodeJS con el comando `npm install`.
-4. Ejecutar la aplicación con ng serve.
+1. Descargar angular 9 o una versión superio. [Angular](https://angular.io/guide/setup-local "Descargar")
+2. Descargar nodeJS. [NodeJs](https://nodejs.org/en/download/ "Descargar")
+3. Clonar el repositorio [movie-query-search](https://github.com/luiscaguilarucr/movie-query-search.git "MovieQuerySearch").
+4. Instalar las dependencias de nodeJS con el comando `npm install`.
+5. Ejecutar la aplicación con ng serve.
 
 ---
 

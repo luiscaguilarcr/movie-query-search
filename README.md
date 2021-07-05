@@ -1,7 +1,4 @@
 ## Repositorio oficial MovieQuerySearch (web-app)
-
-<br>
-
 Este es el repositorio ofical de la aplicación web del MovieQuerySearch. Aquí se encuentra infomación importante sobre la instalación y las funciones de la aplicación.
 
 ---

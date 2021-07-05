@@ -1,7 +1,10 @@
 ## Repositorio oficial MovieQuerySearch (web-app)
 
-Este es el repositorio ofical de la aplicación web del MovieQuerySearch. Aquí se encuentra infomación importante sobre la instalación y las funciones de la aplicación.
 <br>
+
+Este es el repositorio ofical de la aplicación web del MovieQuerySearch. Aquí se encuentra infomación importante sobre la instalación y las funciones de la aplicación.
+
+---
 
 **⚙️ Instalación:**
 1. Descargar [Angular](https://angular.io/guide/setup-local "Descargar Angular") 9 o una versión superior. 

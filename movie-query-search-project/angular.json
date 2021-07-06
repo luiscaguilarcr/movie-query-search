@@ -67,7 +67,12 @@
           "configurations": {
             "production": {
               "browserTarget": "movie-query-search-project:build:production"
-            }
+            },
+			"options": {
+					   "sslKey": "<relative path from angular.json>/server.key",
+					   "sslCert": "<relative path from angular.json>/server.crt"
+					 
+				   }
           }
         },
         "extract-i18n": {

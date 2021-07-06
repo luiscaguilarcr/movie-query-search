@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-const SERVER_ADDRESS = 'https://imdb8.p.rapidapi.com/';
+const SERVER_ADDRESS = 'imdb8.p.rapidapi.com';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,8 +27,7 @@ export class RestService {
    */
   getMostPopularMoviesList(): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'title/get-most-popular-movies',
-      httpOptions
+      this.getEndpoint() + 'title/get-most-popular-movies', httpOptions
     );
   }
 
@@ -38,8 +37,7 @@ export class RestService {
    */
   getMovieDetailsByTconst(tconst: string): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'title/get-details?tconst=' + tconst,
-      httpOptions
+      this.getEndpoint() + 'title/get-details?tconst=' + tconst, httpOptions
     );
   }
 
@@ -48,6 +46,6 @@ export class RestService {
    * @returns The API endpoint string .
    */
   private getEndpoint(): string {
-    return `http://${SERVER_ADDRESS}/`;
+    return `https://${SERVER_ADDRESS}/`;
   }
 }

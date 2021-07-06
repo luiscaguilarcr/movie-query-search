@@ -8,6 +8,7 @@ import { RestService } from '../services/rest.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  tconstMovies:any = [];
   movies:any = [];
   movie:any;
 
@@ -15,15 +16,24 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  getMostPopularMoviesDetailsList(){
+    this.getMostPopularMoviesList();
+    
+    for (let tconst of this.tconstMovies){
+      this.getMovieDetailsByTconst(tconst);
+      this.movies.push(this.movie);
+    }
+  }
 
   /**
-   * Gets the list of movies
-   * @returns list of movies. 
+   * Gets the list of tcosnt movies
+   * @returns list of tcosnt movies. 
    */
   getMostPopularMoviesList() {
-    this.movie = [];
+    this.tconstMovies = [];
     this.rest.getMostPopularMoviesList().subscribe((data: {}) => {
-      this.movies = data;
+      this.tconstMovies = data;
     });
   }
   
@@ -32,7 +42,8 @@ export class MovieListComponent implements OnInit {
    * @returns filtered movie.
    */
   getMovieDetailsByTconst(tconst:string) {
-    this.rest.getMovieDetailsByTconst(tconst).subscribe((data: {}) => {
+    
+    this.rest.getMovieDetailsByTconst(tconst.replace('/','').replace('title','')).subscribe((data: {}) => {
       this.movie = data;
     });
   }

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const appRoutes: Routes = [
   {
@@ -18,7 +19,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, MovieListComponent],
+  declarations: [AppComponent, MovieListComponent, MovieDetailsComponent],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,

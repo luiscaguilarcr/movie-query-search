@@ -15,6 +15,7 @@ export class MovieListComponent implements OnInit {
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.getMostPopularMoviesDetailsList();
   }
   
   getMostPopularMoviesDetailsList(){
@@ -44,6 +45,7 @@ export class MovieListComponent implements OnInit {
   getMovieDetailsByTconst(tconst:string) {
     
     this.rest.getMovieDetailsByTconst(tconst.replace('/','').replace('title','')).subscribe((data: {}) => {
+      console.log(data);
       this.movie = data;
     });
   }

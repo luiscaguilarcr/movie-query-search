@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-const SERVER_ADDRESS = 'https://imdb8.p.rapidapi.com/';
+const SERVER_ADDRESS = 'imdb8.p.rapidapi.com';
 
 const httpOptions = {
   headers: new HttpHeaders({

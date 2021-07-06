@@ -7,17 +7,16 @@
             <th>Title</th>
             <th>Title Type</th>
             <th>Year</th>
+            <!--<th>Details</th>!-->
         </tr>
 
     </thead>
     <tbody>
-
-        <tr *ngFor="let movie of movies; let i=index;">
-            <td>i+1</td>
-            <td>{{ movie.title }}</td>
-            <td>{{ movie.titleType }}</td>
-            <td>{{ movie.year }}</td>
-
+        <tr *ngFor="let m of movies; let i=index;">
+            <td> {{ i+1 }} </td>
+            <td>{{ m.title }}</td>
+            <td>{{ m.titleType }}</td>
+            <td>{{ m.year }}</td>
 
             <!--
             <td>

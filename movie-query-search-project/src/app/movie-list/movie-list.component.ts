@@ -20,11 +20,15 @@ export class MovieListComponent implements OnInit {
   
   getMostPopularMoviesDetailsList(){
     this.getMostPopularMoviesList();
-    
+
+    this.getMovieDetailsByTconst('tt0944947');
+
+    /*
     for (let tconst of this.tconstMovies){
-      this.getMovieDetailsByTconst(tconst);
+      this.getMovieDetailsByTconst(tconst.slice(7, -2));
       this.movies.push(this.movie);
     }
+    */
   }
 
   /**
@@ -32,7 +36,6 @@ export class MovieListComponent implements OnInit {
    * @returns list of tcosnt movies. 
    */
   getMostPopularMoviesList() {
-    this.tconstMovies = [];
     this.rest.getMostPopularMoviesList().subscribe((data: {}) => {
       this.tconstMovies = data;
     });
@@ -43,11 +46,13 @@ export class MovieListComponent implements OnInit {
    * @returns filtered movie.
    */
   getMovieDetailsByTconst(tconst:string) {
-    
-    this.rest.getMovieDetailsByTconst(tconst.replace('/','').replace('title','')).subscribe((data: {}) => {
-      console.log(data);
-      this.movie = data;
-    });
+   /* this.rest.getMovieDetailsByTconst(tconst.slice(7, -1)).subscribe((data: {}) => {
+      this.movies.push(data);
+    });*/
+
+    this.rest.getMovieDetailsByTconst(tconst).subscribe((data: {}) => {
+      this.movies.push(data);
+    })
   }
 
 }

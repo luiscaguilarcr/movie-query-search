@@ -35,7 +35,7 @@ export class RestService {
    */
   getMovieDetailsByTconst(tconst: string): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'get-details' + JSON.stringify(tconst), httpOptions
+      this.getEndpoint() + 'get-details?id=' + tconst, httpOptions
     );
   }
 

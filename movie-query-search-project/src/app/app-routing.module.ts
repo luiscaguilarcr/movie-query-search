@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const routes: Routes = [
   {
@@ -8,7 +9,11 @@ const routes: Routes = [
     component: MovieListComponent,
     data: { title: 'Movie List' },
   },
-  { path: '', redirectTo: '/movies', pathMatch: 'full' },
+  {
+    path: 'details',
+    component: MovieDetailsComponent,
+    data: { title: 'Movie Details' },
+  },
   { path: '**', pathMatch: 'full', redirectTo: '/movies' }
 ];
 

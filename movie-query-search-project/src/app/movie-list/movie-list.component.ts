@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
 @Component({
   selector: 'app-movie-list',
@@ -28,17 +29,10 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  open(content, tconst: any) {
-    this.modalService.open(content);
-    
-    this.rest.getMovieDetailsByTconst(tconst).subscribe((data:{}) => {
-      this.movie = data[0];
-      console.log(this.movie);
-    });
-  }
+  showDetails(movie:any){
+    const ref = this.modalService.open(MovieDetailsComponent);
 
-  openTwo(content) {
-    this.modalService.open(content);
-    
+    ref.componentInstance.movie = movie;
   }
+  
 }

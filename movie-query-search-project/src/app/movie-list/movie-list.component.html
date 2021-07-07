@@ -1,47 +1,25 @@
-<h2>Most popular movies</h2>
+<div>
+    <h2> Most popular movies</h2>
 
-<table class="table" *ngIf="movies">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Title Type</th>
-            <th>Details</th>
-        </tr>
-    </thead>
+    <table class="table" *ngIf="movies">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Title Type</th>
+                <th>Details</th>
+            </tr>
+        </thead>
 
-    <tbody>
-        <tr *ngFor="let m of movies; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td>{{ m.title }}</td>
-            <td>{{ m.titleType }}</td>
-            <td>
-                <button type="button" class="btn btn-lg btn-outline-primary" (click)="open(content, m.tconst)">
-          Show
-        </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-
-<ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title">Hi there!</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    </div>
-
-    <div *ngIf="movie" class="modal-body">
-        <p>Tittle: {{ movie.title }}!</p>
-    </div>
-
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">
-      Close
-    </button>
-    </div>
-</ng-template>
-
-<button type="button" class="btn btn-lg btn-outline-primary" (click)="openTwo(content)"> Show </button>
+        <tbody>
+            <tr *ngFor="let m of movies; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ m.title }}</td>
+                <td>{{ m.titleType }}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-dark" (click)="showDetails(m)"> Show </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

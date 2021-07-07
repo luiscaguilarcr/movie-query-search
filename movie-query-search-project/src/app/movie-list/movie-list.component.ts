@@ -1,58 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from '../services/rest.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css']
+  styleUrls: ['./movie-list.component.css'],
 })
 export class MovieListComponent implements OnInit {
-  tconstMovies:any = [];
-  movies:any = [];
-  movie:any;
+  movies: any = [];
+  movie: any;
 
-  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public rest: RestService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.getMostPopularMoviesDetailsList();
-  }
-  
-  getMostPopularMoviesDetailsList(){
     this.getMostPopularMoviesList();
-
-    this.getMovieDetailsByTconst('tt0944947');
-
-    /*
-    for (let tconst of this.tconstMovies){
-      this.getMovieDetailsByTconst(tconst.slice(7, -2));
-      this.movies.push(this.movie);
-    }
-    */
   }
 
   /**
-   * Gets the list of tcosnt movies
-   * @returns list of tcosnt movies. 
-   */
-  getMostPopularMoviesList() {
-    this.rest.getMostPopularMoviesList().subscribe((data: {}) => {
-      this.tconstMovies = data;
-    });
-  }
-  
-  /**
-   * Gets the movie filtered by tconst.
+   * Gets the movie details.
    * @returns filtered movie.
    */
-  getMovieDetailsByTconst(tconst:string) {
-   /* this.rest.getMovieDetailsByTconst(tconst.slice(7, -1)).subscribe((data: {}) => {
-      this.movies.push(data);
-    });*/
-
-    this.rest.getMovieDetailsByTconst(tconst).subscribe((data: {}) => {
-      this.movies.push(data);
-    })
+   getMostPopularMoviesList() {
+    this.rest.getMostPopularMovieDetailsList().subscribe((data:{}) => {
+      this.movies = data;
+      console.log(this.movies);
+    });
   }
 
+  showDetails(movie:any){
+    const ref = this.modalService.open(MovieDetailsComponent);
+
+    ref.componentInstance.movie = movie;
+  }
+  
 }

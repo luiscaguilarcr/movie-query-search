@@ -1,28 +1,25 @@
-<h2>Most popular movies</h2>
+<div>
+    <h2> Most popular movies</h2>
 
-<table class='table' *ngIf="movies">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Title Type</th>
-            <th>Year</th>
-            <!--<th>Details</th>!-->
-        </tr>
+    <table class="table" *ngIf="movies">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Title Type</th>
+                <th>Details</th>
+            </tr>
+        </thead>
 
-    </thead>
-    <tbody>
-        <tr *ngFor="let m of movies; let i=index;">
-            <td> {{ i+1 }} </td>
-            <td>{{ m.title }}</td>
-            <td>{{ m.titleType }}</td>
-            <td>{{ m.year }}</td>
-
-            <!--
-            <td>
-                 <a [routerLink]="['/student-detail/', s.id]"> Detail </a>
-            </td>
-             !-->
-        </tr>
-
-    </tbody>
+        <tbody>
+            <tr *ngFor="let m of movies; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ m.title }}</td>
+                <td>{{ m.titleType }}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary" (click)="showDetails(m)"> Show </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

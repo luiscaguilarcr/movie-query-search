@@ -3,15 +3,13 @@ import {
   HttpClient,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
-const SERVER_ADDRESS = 'imdb8.p.rapidapi.com';
+const SERVER_ADDRESS = 'my-json-server.typicode.com/luiscaguilarucr/movies-database';
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'x-rapidapi-key': 'cd4787de66msh6cb0d6053c17b56p1812f7jsn688e82f126e5',
-    'x-rapidapi-host': 'imdb8.p.rapidapi.com',
   }),
 };
 
@@ -25,9 +23,9 @@ export class RestService {
    * Gets the tconst list of the movies.
    * @returns The get request observable.
    */
-  getMostPopularMoviesList(): Observable<any> {
+  getMostPopularMovieDetailsList(): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'title/get-most-popular-movies', httpOptions
+      this.getEndpoint() + 'get-details', httpOptions
     );
   }
 
@@ -37,7 +35,7 @@ export class RestService {
    */
   getMovieDetailsByTconst(tconst: string): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'title/get-details?tconst=' + tconst, httpOptions
+      this.getEndpoint() + 'get-details?id=' + tconst, httpOptions
     );
   }
 

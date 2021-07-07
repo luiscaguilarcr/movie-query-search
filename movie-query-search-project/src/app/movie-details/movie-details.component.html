@@ -1,0 +1,13 @@
+<div class="modal-centered">
+    <div *ngIf="movie">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ movie.title }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Title Type: {{ movie.titleType }}</p>
+            <p>Duration: {{ movie.runningTimeInMinutes }} </p>
+            <p>Year: {{ movie.year }}</p>
+        </div>
+    </div>
+</div>

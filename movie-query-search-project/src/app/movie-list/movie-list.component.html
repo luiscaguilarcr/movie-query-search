@@ -7,10 +7,10 @@
             <th>Title</th>
             <th>Title Type</th>
             <th>Year</th>
-            <!--<th>Details</th>!-->
+            <th>Details</th>
         </tr>
-
     </thead>
+
     <tbody>
         <tr *ngFor="let m of movies; let i=index;">
             <td> {{ i+1 }} </td>
@@ -18,11 +18,28 @@
             <td>{{ m.titleType }}</td>
             <td>{{ m.year }}</td>
 
-            <!--
             <td>
-                 <a [routerLink]="['/student-detail/', s.id]"> Detail </a>
+                <button class="btn btn-lg btn-outline-primary" (click)="open(contenido, m.id)"> Show </button>
             </td>
-             !-->
         </tr>
-
     </tbody>
+</table>
+
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Hi there!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+
+    <div class="modal-body">
+        <p>Tittle: {{ movie.title }}!</p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">
+      Close
+    </button>
+    </div>
+</ng-template>

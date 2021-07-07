@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-const SERVER_ADDRESS = 'imdb8.p.rapidapi.com';
+const SERVER_ADDRESS = 'gateway.marvel.com:443';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,7 +27,7 @@ export class RestService {
    */
   getMostPopularMoviesList(): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'title/get-most-popular-movies', httpOptions
+      this.getEndpoint() + '/v1/public/series?title=Iron%20Man&apikey=7f5764f63daa175af90c5893da6b64ce'
     );
   }
 

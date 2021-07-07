@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-movie-list',
@@ -13,12 +12,7 @@ export class MovieListComponent implements OnInit {
   movies: any = [];
   movie: any;
 
-  constructor(
-    public rest: RestService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private modalService: NgbModal
-  ) {}
+  constructor(public rest: RestService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.getMostPopularMoviesDetailsList();
@@ -26,13 +20,7 @@ export class MovieListComponent implements OnInit {
 
   getMostPopularMoviesDetailsList() {
     this.getMostPopularMoviesList();
-    this.getMovieDetailsByTconst('tt0944947');
-    /*
-    for (let tconst of this.tconstMovies){
-      this.getMovieDetailsByTconst(tconst.slice(7, -2));
-      this.movies.push(this.movie);
-    }
-    */
+    this.tconstMovies.forEach((tconst: string) => this.getMovieDetailsByTconst(tconst));
   }
 
   /**
@@ -50,17 +38,17 @@ export class MovieListComponent implements OnInit {
    * @returns filtered movie.
    */
   getMovieDetailsByTconst(tconst: string) {
+    alert(tconst)
     this.rest.getMovieDetailsByTconst(tconst).subscribe((data: {}) => {
       this.movies.push(data);
     });
   }
 
-  open(contenido, tconst:string) {
-    this.modalService.open(contenido, {size:'lg'});
-    
-    this.rest.getMovieDetailsByTconst(tconst.slice(7, -2)).subscribe((data: {}) => {
+  open(contenido, tconst: string) {
+    this.modalService.open(contenido, { size: 'lg' });
+
+    this.rest.getMovieDetailsByTconst(tconst).subscribe((data: {}) => {
       this.movie = data;
     });
   }
 }
-

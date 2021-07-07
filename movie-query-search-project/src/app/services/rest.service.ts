@@ -23,9 +23,9 @@ export class RestService {
    * Gets the tconst list of the movies.
    * @returns The get request observable.
    */
-  getMostPopularMoviesList(): Observable<any> {
+  getMostPopularMovieDetailsList(): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'get-tconst-movies', httpOptions
+      this.getEndpoint() + 'get-details', httpOptions
     );
   }
 
@@ -35,7 +35,7 @@ export class RestService {
    */
   getMovieDetailsByTconst(tconst: string): Observable<any> {
     return this.http.get(
-      this.getEndpoint() + 'get-details?id=' + tconst, httpOptions
+      this.getEndpoint() + 'get-details' + JSON.stringify(tconst), httpOptions
     );
   }
 

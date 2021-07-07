@@ -8,47 +8,37 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./movie-list.component.css'],
 })
 export class MovieListComponent implements OnInit {
-  tconstMovies: any = [];
   movies: any = [];
   movie: any;
 
-  constructor(public rest: RestService, private modalService: NgbModal) {}
+  constructor(public rest: RestService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.getMostPopularMoviesDetailsList();
-  }
-
-  getMostPopularMoviesDetailsList() {
     this.getMostPopularMoviesList();
-    this.tconstMovies.forEach((tconst: string) => this.getMovieDetailsByTconst(tconst));
   }
 
   /**
-   * Gets the list of tcosnt movies
-   * @returns list of tcosnt movies.
-   */
-  getMostPopularMoviesList() {
-    this.rest.getMostPopularMoviesList().subscribe((data: {}) => {
-      this.tconstMovies = data;
-    });
-  }
-
-  /**
-   * Gets the movie filtered by tconst.
+   * Gets the movie details.
    * @returns filtered movie.
    */
-  getMovieDetailsByTconst(tconst: string) {
-    alert(tconst)
-    this.rest.getMovieDetailsByTconst(tconst).subscribe((data: {}) => {
-      this.movies.push(data);
+   getMostPopularMoviesList() {
+    this.rest.getMostPopularMovieDetailsList().subscribe((data:{}) => {
+      this.movies = data;
+      console.log(this.movies);
     });
   }
 
-  open(contenido, tconst: string) {
-    this.modalService.open(contenido, { size: 'lg' });
-
-    this.rest.getMovieDetailsByTconst(tconst).subscribe((data: {}) => {
-      this.movie = data;
+  open(content, tconst: any) {
+    this.modalService.open(content);
+    
+    this.rest.getMovieDetailsByTconst(tconst).subscribe((data:{}) => {
+      this.movie = data[0];
+      console.log(this.movie);
     });
+  }
+
+  openTwo(content) {
+    this.modalService.open(content);
+    
   }
 }

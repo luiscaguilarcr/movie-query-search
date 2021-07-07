@@ -6,7 +6,6 @@
             <th>Id</th>
             <th>Title</th>
             <th>Title Type</th>
-            <th>Year</th>
             <th>Details</th>
         </tr>
     </thead>
@@ -16,16 +15,15 @@
             <td>{{ i + 1 }}</td>
             <td>{{ m.title }}</td>
             <td>{{ m.titleType }}</td>
-            <td>{{ m.year }}</td>
-
             <td>
-                <button class="btn btn-lg btn-outline-primary" (click)="open(content, m.id)">
+                <button type="button" class="btn btn-lg btn-outline-primary" (click)="open(content, m.tconst)">
           Show
         </button>
             </td>
         </tr>
     </tbody>
 </table>
+
 
 <ng-template #content let-modal>
     <div class="modal-header">
@@ -35,7 +33,7 @@
     </button>
     </div>
 
-    <div class="modal-body">
+    <div *ngIf="movie" class="modal-body">
         <p>Tittle: {{ movie.title }}!</p>
     </div>
 
@@ -45,3 +43,5 @@
     </button>
     </div>
 </ng-template>
+
+<button type="button" class="btn btn-lg btn-outline-primary" (click)="openTwo(content)"> Show </button>

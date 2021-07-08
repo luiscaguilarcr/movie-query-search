@@ -1,11 +1,8 @@
 /* movies Component's private CSS styles */
 
 @import url('https://unpkg.com/bootstrap/dist/css/bootstrap.min.css');
-div {
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    width: 1500px;
-    margin-top: 10px;
-    margin-left: 15x;
+.container {
+    width: 1000px;
+    max-width: 1000px;
+    margin: auto;
 }

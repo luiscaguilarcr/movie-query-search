@@ -1,7 +1,8 @@
 ## Repositorio oficial de MovieQuerySearch (web-app)
-Este es el repositorio ofical de la aplicación web del MovieQuerySearch. Aquí se encuentra infomación importante sobre la instalación y las funciones de la aplicación.
+Este es el repositorio ofical de la aplicación web del MovieQuerySearch. Aquí se encuentra infomación importante sobre la instalación y las funciones de la aplicación. 
 
-Presione [aquí](https://movie-query-search-cr.vercel.app/movies "MovieQuerySearch") para ingresar nuestro sitio web 
+Presione [aquí](https://movie-query-search-cr.vercel.app/movies "MovieQuerySearch") para ingresar nuestro sitio web.
+
 ---
 
 **⚙️ Instalación:**
